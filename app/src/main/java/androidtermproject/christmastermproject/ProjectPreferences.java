@@ -4,9 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-/**
- * Created by Hattapong on 12/2/2016.
- */
 
 public class ProjectPreferences {
     private static final String HIGH_SCORE = "HIGH_SCORE";

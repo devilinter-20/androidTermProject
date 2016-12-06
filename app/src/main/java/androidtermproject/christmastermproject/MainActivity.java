@@ -9,7 +9,6 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -67,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
         // Generate Thread for Animation Gift
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 30; i++) {
             // Create ImageView for Gift
             final ImageView newImage = new ImageView(this);
             newImage.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
@@ -126,12 +125,12 @@ public class MainActivity extends AppCompatActivity {
 
             System.out.println("TRACK " + x);
 
-            santa.setX(santa.getX() - x * 10);
+            santa.setX(santa.getX() - x * 5);
             if (santa.getX() < 0) {
                 santa.setX(0);
             }
-            if (santa.getX() > screenWidth - 200) {
-                santa.setX(screenWidth - 200);
+            if (santa.getX() > screenWidth - 100) {
+                santa.setX(screenWidth - 100);
             }
 
         }
@@ -149,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
         imageView.setX(randWidth);
 
         //Random Duration of falling
-        final long duration = new Random().nextInt(2000) + 2000;
+        final long duration = new Random().nextInt(2000) + 2500;
 
         //Move
         final Animation anim = new TranslateAnimation(randWidth, randWidth, 0, screenHeight);
@@ -184,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void showPoint(float index, int type) {
-        if (index >= santa.getX() - 120 && index <= santa.getX() + 120) {
+        if (index >= santa.getX() - 90 && index <= santa.getX() + 90) {
 
             if (type == BOMB) {
                 Intent intent = new Intent(MainActivity.this, ResultActivity.class);
